@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import Project from "./Project";
 import Lenis from "lenis";
+import Hero from "./Hero";
 
 const projects = [
   {
@@ -57,8 +58,8 @@ const App = () => {
     requestAnimationFrame(raf);
   }, []);
   return (
-    <div className="relative max-w-screen h-[500vh] bg-black text-white pt-24 px-8 pb-8">
-      <div className="w-full h-screen" />
+    <div className="relative max-w-screen h-[500vh] bg-black text-white lg:px-8">
+      <Hero />
       {projects.map((project, i) => {
         return (
           <Project
