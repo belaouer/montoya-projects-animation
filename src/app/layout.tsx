@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Six_Caps } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const poppins = Poppins({
   weight: ["400"],
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${poppins.variable} ${sixCaps.variable} antialiased`}
         suppressHydrationWarning={true}
       >
+        <Header />
         {children}
       </body>
     </html>

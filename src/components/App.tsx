@@ -1,8 +1,10 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Project from "./Project";
 import Lenis from "lenis";
 import Hero from "./Hero";
+import { useMenuStore } from "@/stores/menuStore";
+import Menu from "./Menu";
 
 const projects = [
   {
@@ -44,7 +46,12 @@ const projects = [
 
 const App = () => {
   const projectsRef = useRef<HTMLDivElement[]>([]);
+  const { isOpen } = useMenuStore();
+  const [showMenu, setShowMenu] = useState(false);
 
+  useEffect(() => {
+    if (isOpen) setShowMenu(true);
+  }, [isOpen]);
   useEffect(() => {
     // Initialize Lenis
     const lenis = new Lenis();
@@ -56,21 +63,31 @@ const App = () => {
     }
 
     requestAnimationFrame(raf);
-  }, []);
+
+    // if (isOpen) {
+    //   setShowMenu(true);
+    // }
+  }, [isOpen]);
   return (
-    <div className="relative max-w-screen min-h-[500vh] bg-black text-white lg:px-8">
-      <Hero />
-      {projects.map((project, i) => {
-        return (
-          <Project
-            key={project.id}
-            {...project}
-            projectsRef={projectsRef}
-            index={i}
-          />
-        );
-      })}
-      <div className="w-full h-screen" />
+    <div className="relative max-w-screen h-fit max-h-[550vh] bg-black text-white lg:px-8">
+      {showMenu && (
+        <Menu onExitComplete={() => setShowMenu(false)} />
+      )}
+
+      {!isOpen && !showMenu && (
+        <>
+          <Hero />
+          {projects.map((project, i) => (
+            <Project
+              key={project.id}
+              {...project}
+              projectsRef={projectsRef}
+              index={i}
+            />
+          ))}
+          <div className="w-full h-screen" />
+        </>
+      )}
     </div>
   );
 };
