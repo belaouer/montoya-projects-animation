@@ -58,7 +58,7 @@ const App = () => {
     requestAnimationFrame(raf);
   }, []);
   return (
-    <div className="relative max-w-screen h-[500vh] bg-black text-white lg:px-8">
+    <div className="relative max-w-screen min-h-[500vh] bg-black text-white lg:px-8">
       <Hero />
       {projects.map((project, i) => {
         return (

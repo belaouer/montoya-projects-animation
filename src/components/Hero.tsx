@@ -48,7 +48,7 @@ const Hero = () => {
             );
           })}
         </h1>
-        <div className="text-[16px] lg:text-[18px] font-poppins  lg:w-1/2 mx-auto text-white/50 mt-8">
+        <div className="text-[16px] lg:text-[18px] font-poppins  md:w-1/2 mx-auto text-white/50 mt-8">
           <span className="lg:block">
             WE ARE A CREATIVE STUDIO, SPECIALIZED IN STRATEGY, BRANDING
           </span>
