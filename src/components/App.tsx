@@ -28,7 +28,7 @@ const projects = [
   },
   {
     id: 4,
-    src: "	http://clapat.ro/themes/montoya/images/04hero.jpg",
+    src: "http://clapat.ro/themes/montoya/images/04hero.jpg",
     title: "cool dude",
     year: 2024,
     category: "video production",
